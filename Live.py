@@ -1,6 +1,7 @@
 from threading import Event
 from GuessGame import play_guess
-from MemoryGame import play_memory, clear_terminal
+from MemoryGame import play_memory
+from Utils import clear_terminal
 from CurrencyRouletteGame import play_roulette
 
 
