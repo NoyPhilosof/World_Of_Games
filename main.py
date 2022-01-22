@@ -1,5 +1,5 @@
 from Live import welcome, da_game
-from MemoryGame import clear_terminal
+from utils import clear_terminal
 
 if __name__ == '__main__':
 

@@ -1,15 +1,7 @@
 import random
 import inflect
-import os
 from threading import Event
-
-
-def clear_terminal():
-    """
-    This func clears the screen in windows cmd and linux/macOS terminal
-    :return: None
-    """
-    os.system('cls||clear')
+from utils import clear_terminal
 
 
 def generate_sequence(difficulty):

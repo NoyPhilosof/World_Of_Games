@@ -1,6 +1,6 @@
 import random
 from threading import Event
-from MemoryGame import clear_terminal
+from utils import clear_terminal
 
 
 def mini_welcome(difficulty):
