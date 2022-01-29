@@ -1,6 +1,7 @@
 
 def add_scores(difficulty):
-    """ this func calculates how many points a user just won and tries to add them to Scores.txt
+    """
+    this func calculates how many points a user just won and tries to add them to Scores.txt
     if this file does not exist, it creates it with the number of points just calculated
     if this file exists, the value in it is added to the "just won" value and the file is re-written
     :param difficulty: an integer representing the difficulty of the game just won
