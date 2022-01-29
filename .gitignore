@@ -1,4 +1,8 @@
-*.DS
+*.DS_Store
 venv/
 __pycache__/
 .idea/
+Scores.txt
+This_message_will_destroy.py
+Testing_code_parts.py
+

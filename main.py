@@ -4,6 +4,9 @@ from Utils import clear_terminal
 if __name__ == '__main__':
 
     clear_terminal()
+    with open('Scores.txt', 'w') as scores:    # create or clean Scores.txt
+        scores.write('')
+
     name = input('Hi. What is your name? ')
     welcome(name)
 
