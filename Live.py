@@ -1,17 +1,19 @@
 from threading import Event
 from GuessGame import play_guess
 from MemoryGame import play_memory
-from Utils import clear_terminal
+from Utils import clear_terminal, reset_scores_file
 from CurrencyRouletteGame import play_roulette
 
 
 def welcome(name):
     """
-    this func prints a welcome greeting using the player's name entered in previous stage
+    this func prints a welcome greeting using the player's name entered in previous stage.
+    it also initializes the Scores.txt file
     :param name: player's name as string
     :return: None
     """
     clear_terminal()
+    reset_scores_file()
     greeting = f"\nHello {name}, and welcome to the World of Games (WoG). Here you can find many cool games to play."
     print(greeting)
     return
@@ -28,17 +30,17 @@ def load_game():
         game_selection = int(input("""\n\nPlease choose a game to play (1, 2 or 3):
         1. Memory Game - a sequence of numbers will appear for 1 second and you will have to guess it back
         2. Guess Game - guess a number and see if you chose like the computer
-        3. Currency Roulette - try and guess the value of a random amount of USD in ILS. """))
+        3. Currency Roulette - try and guess the value of a random amount of USD in ILS. \n\t"""))
         difficulty = int(input("\nPlease choose game difficulty from 1 - 5: "))
     except ValueError:
-        print("Integers only. Please try again. \n\n\n")
+        print("Integers only. Please try again. \n")
         load_game()
     else:
         if (game_selection < 1) or (game_selection > 3):
-            print("Unrecognized game. Please try again\n\n")
+            print("\n\nUnrecognized game. Please try again. ")
             load_game()
         elif (difficulty < 1) or (difficulty > 5):
-            print("No such difficulty level. Please try again.\n\n")
+            print("No such difficulty level. Please try again. \n\n")
             load_game()
         elif game_selection == 1:
             print(f"\nYou have chosen to play Memory Game in difficulty {difficulty}.")
@@ -54,15 +56,18 @@ def load_game():
             return [game_selection, difficulty]
 
 
-def da_game():
+def play_da_game(game_selection):
     """
     this func runs the game and difficulty selection function and then sends the data to the corresponding game
     :return: None
     """
-    game_selection = load_game()
+    # game_selection = load_game()
     if game_selection[0] == 1:
-        play_memory(game_selection[1])
+        state = play_memory(game_selection[1])
+        return state
     elif game_selection[0] == 2:
-        play_guess(game_selection[1])
+        state = play_guess(game_selection[1])
+        return state
     elif game_selection[0] == 3:
-        play_roulette(game_selection[1])
+        state = play_roulette(game_selection[1])
+        return state

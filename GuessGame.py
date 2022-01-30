@@ -6,7 +6,7 @@ from Utils import clear_terminal
 def mini_welcome(difficulty):
     clear_terminal()
     print(f"Welcome to the Guess game.\nIn this game you'll need to guess a number between 1-{difficulty}. ")
-    Event().wait(3)
+    Event().wait(2)
 
 
 def generate_number(difficulty):
@@ -56,16 +56,14 @@ def play_guess(difficulty):
     :param difficulty: integer passed from previous user selection
     :return: None
     """
-
-    is_equal = False
-    while not is_equal:
-        mini_welcome(difficulty)
-        secret_number = generate_number(difficulty)
-        current_guess = get_guess_from_user(difficulty)
-        is_equal = compare_results(secret_number, current_guess)
-        if not is_equal:
-            print("Wrong guess. PLease try again: ")
-
-    print('Great, you won! \n\n')
-
-    return
+    mini_welcome(difficulty)
+    secret_number = generate_number(difficulty)
+    current_guess = get_guess_from_user(difficulty)
+    is_equal = compare_results(secret_number, current_guess)
+    clear_terminal()
+    if is_equal:
+        print('Nice one! You won. \n\n')
+        return True
+    else:
+        print("You guessed wrong. \n\n")
+        return False

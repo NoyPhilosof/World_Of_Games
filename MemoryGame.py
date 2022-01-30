@@ -16,11 +16,11 @@ def generate_sequence(difficulty):
 Your mission is to remember those numbers and enter them correctly when asked.
 
 Good luck!""")
-    Event().wait(8)
+    Event().wait(6)
     clear_terminal()
     print('Ready? ')
-    Event().wait(2)
-    print('\n\n\n\n\n\n\n\n\n\n\n')
+    Event().wait(1)
+    print('\n\n\n\n\n\n')
     print(guess_me)
     Event().wait(float(0.7))
     clear_terminal()
@@ -62,10 +62,10 @@ def is_list_equal(user_guess, guess_me):
     """
     is_equal = (user_guess == guess_me)    # as both lists contains only integers we can compare them easily.
     if is_equal:
-        print('\n\nGreat. You won! \n\n')
+        print('Great. You won! \n\n')
         return True
     if not is_equal:
-        print("\n\nWe're sorry but you guessed wrong. \n\n")
+        print("You guessed wrong. \n\n")
         return False
 
 

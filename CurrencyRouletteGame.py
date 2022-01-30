@@ -53,10 +53,10 @@ def get_guess_from_user(random_sum, acceptable_guess_range_bottom, acceptable_gu
             print('\nYou are right! ')
             return True
         elif user_guess < acceptable_guess_range_bottom or user_guess > acceptable_guess_range_top:
-            print('\nSorry, your answer is too far from the right sum. Game Over. ')
+            print('\nSorry, your answer is too far from the right sum. Game Over. \n\n')
             return False
         else:
-            print('\nWrong input. Game Over. ')
+            print('\nWrong input. Game Over. \n\n')
             return False
 
 

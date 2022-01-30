@@ -10,3 +10,12 @@ def clear_terminal():
     :return: None
     """
     os.system('cls||clear')
+
+
+def reset_scores_file():
+    """
+    create and reset Scores.txt
+    :return: None
+    """
+    with open('Scores.txt', 'w') as scores:
+        scores.write('0')
