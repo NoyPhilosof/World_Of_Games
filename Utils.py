@@ -19,3 +19,9 @@ def reset_scores_file():
     """
     with open('Scores.txt', 'w') as scores:
         scores.write('0')
+
+
+def check_score():
+    with open('Scores.txt', 'r') as scores:
+        content = scores.readlines()
+        return content[0]

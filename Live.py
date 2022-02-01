@@ -1,8 +1,8 @@
 from threading import Event
-from GuessGame import play_guess
-from MemoryGame import play_memory
 from Utils import clear_terminal, reset_scores_file
-from CurrencyRouletteGame import play_roulette
+from games import MemoryGame, GuessGame, CurrencyRouletteGame
+import sys
+# sys.path.insert(1, '/Users/noy/gits/World_Of_Games/games/')
 
 
 def welcome(name):
@@ -63,11 +63,11 @@ def play_da_game(game_selection):
     """
     # game_selection = load_game()
     if game_selection[0] == 1:
-        state = play_memory(game_selection[1])
+        state = MemoryGame.play_memory(game_selection[1])
         return state
     elif game_selection[0] == 2:
-        state = play_guess(game_selection[1])
+        state = GuessGame.play_guess(game_selection[1])
         return state
     elif game_selection[0] == 3:
-        state = play_roulette(game_selection[1])
+        state = CurrencyRouletteGame.play_roulette(game_selection[1])
         return state

@@ -1,5 +1,5 @@
 from Live import welcome, load_game, play_da_game
-from Utils import clear_terminal
+from Utils import clear_terminal, check_score
 from Score import add_scores
 
 if __name__ == '__main__':
@@ -25,4 +25,5 @@ if __name__ == '__main__':
 # print(type(did_i_win))
 
 clear_terminal()
-print('\n\nThank you for playing WOG.\n\n')
+print('\n\nThank you for playing WOG.')
+print(f'You have scored {check_score()} points. \n\n')
