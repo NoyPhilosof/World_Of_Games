@@ -1,7 +1,7 @@
 from currency_converter import CurrencyConverter
 from threading import Event
 from random import randint
-from Utils import clear_terminal
+from utils.Utils import clear_terminal
 
 
 def get_money_interval(difficulty):

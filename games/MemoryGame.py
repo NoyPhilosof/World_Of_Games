@@ -1,7 +1,7 @@
 import random
 import inflect
 from threading import Event
-from Utils import clear_terminal
+from utils.Utils import clear_terminal
 
 
 def generate_sequence(difficulty):

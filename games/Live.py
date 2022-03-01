@@ -1,8 +1,6 @@
 from threading import Event
-from Utils import clear_terminal, reset_scores_file
+from utils.Utils import clear_terminal, reset_scores_file
 from games import MemoryGame, GuessGame, CurrencyRouletteGame
-import sys
-# sys.path.insert(1, '/Users/noy/gits/World_Of_Games/games/')
 
 
 def welcome(name):
