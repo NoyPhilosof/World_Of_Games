@@ -7,7 +7,7 @@ def score_server():
     this func checks the first line of Scores.txt and returns it
     :return: int representing user current score
     """
-    with open('Scores.txt', 'r') as scores_file:
+    with open(r'.\Scores.txt', 'r') as scores_file:
         content = scores_file.readlines()
         score = content[0]
         return score
@@ -43,4 +43,4 @@ def failure():
     return b, 200
 
 
-app.run(host='localhost', debug=True, port=5000)
+app.run(host='localhost', debug=False, port=5000)
