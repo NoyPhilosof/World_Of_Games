@@ -1,0 +1,7 @@
+services:
+  web:
+    #container_name: flask-container
+    build: .    
+    volumes:
+      - ./scores/:/home/mruser/scores/
+    #command: 'docker push world_of_games_web clearnoyz/flaskapp1'
