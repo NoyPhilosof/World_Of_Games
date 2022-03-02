@@ -17,11 +17,11 @@ def reset_scores_file():
     create and reset Scores.txt
     :return: None
     """
-    with open('Scores.txt', 'w') as scores:
+    with open('./scores/Scores.txt', 'w') as scores:
         scores.write('0')
 
 
 def check_score():
-    with open('Scores.txt', 'r') as scores:
+    with open('./scores/Scores.txt', 'r') as scores:
         content = scores.readlines()
         return content[0]

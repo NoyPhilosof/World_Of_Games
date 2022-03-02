@@ -1,6 +1,3 @@
-# from Live import welcome, load_game, play_da_game
-# from Utils import clear_terminal, check_score
-# from Score import add_scores
 from games.Live import welcome, load_game, play_da_game
 from utils.Utils import clear_terminal, check_score
 from utils.Score import add_scores
