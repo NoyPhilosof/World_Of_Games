@@ -1,6 +1,6 @@
 FROM python:alpine
 
-RUN adduser -D mruser
+RUN adduser mruser
 
 USER mruser
 ENV PATH="/home/mruser/.local/bin:${PATH}"
