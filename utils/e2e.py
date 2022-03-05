@@ -4,7 +4,7 @@ from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 
-chrome_service = Service('.\chromedriver')
+chrome_service = Service('./chromedriver')
 chrome_driver = webdriver.Chrome(service=chrome_service)
 
 
