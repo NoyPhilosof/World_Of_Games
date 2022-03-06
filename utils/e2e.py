@@ -39,3 +39,8 @@ def main_function(url='http://localhost:5000/success'):
     """
     web_service_test = test_scores_service(url)
     return web_service_test
+
+
+
+if __name__ == '__main__':
+    main_function()
