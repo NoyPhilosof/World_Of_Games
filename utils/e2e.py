@@ -48,4 +48,4 @@ def main_function(url='http://localhost:8777/success'):
 
 
 if __name__ == '__main__':
-    app.run()
+    main_function()
