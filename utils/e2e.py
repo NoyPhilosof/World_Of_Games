@@ -36,7 +36,7 @@ def test_scores_service(url):
             return -1
 
 
-def main_function(url='http://localhost:5000/success'):
+def main_function(url='http://localhost:8777/success'):
     """
     this function runs the pre-defined tests for the flask web service
     :argument url as a string
@@ -48,4 +48,4 @@ def main_function(url='http://localhost:5000/success'):
 
 
 if __name__ == '__main__':
-    main_function()
+    app.run()
