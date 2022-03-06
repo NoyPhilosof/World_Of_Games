@@ -10,7 +10,7 @@ options.add_argument('--headless')
 options.add_argument('--disable-gpu')
 
 chrome_service = Service('./chromedriver')
-chrome_driver = webdriver.Chrome(service=chrome_service, chrome_otions=options)
+chrome_driver = webdriver.Chrome(service=chrome_service, chrome_options=options)
 
 
 def test_scores_service(url):
