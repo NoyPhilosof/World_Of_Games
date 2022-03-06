@@ -1,37 +1,51 @@
-// perties([githubProjectProperty(displayName: '', projectUrlStr: 'https://github.com/NoyPhilosof/World_Of_Games.git/')])
+properties([githubProjectProperty(displayName: '', projectUrlStr: 'https://github.com/NoyPhilosof/World_Of_Games.git/')])
 
 pipeline {
     agent any
 
     stages {
         
-        stage('Clone Repository') {
+        stage('Checkout') {
             steps {
                 git branch: 'main', url: 'http://github.com/NoyPhilosof/World_Of_Games.git'
             }
         }
         
-        stage('Build Image') {
+        stage('Build') {
             steps {
                 sh 'docker build -t flask-app .'
             }
         }
         
-        stage('Run Container') {
+        stage('Run') {
             steps {
                 sh '/usr/local/bin/docker-compose up -d'
             }
         }
-        
-        stage('Components install') {
+
+        stage('Test') {
             steps {
-                sh 'pip install -r ./requirements.txt'            }
+                catchError(message: 'Failed e2e Test') {
+                    script {
+                        try{
+                            sh '''pip install -r ./requirements.txt
+                            cd utils/
+                            python3 e2e.py'''
+                        }                
+                        catch (e) {
+                            echo "Failed e2e Test"
+                        }
+                    }                
+                }
+            }
         }
-        
-        stage('Selenium test') {
+
+        stage('Terminating Container') {
             steps {
-                sh '''cd utils/
-                python3 e2e.py'''
+                sh '''docker-compose down
+                docker login -u clearnoyz -p degba4-fazfoG-wyssij
+                docker tag flask-app clearnoyz/wog-web-test:latest
+                docker image push clearnoyz/wog-web-test:latest'''
             }
         }
     }
