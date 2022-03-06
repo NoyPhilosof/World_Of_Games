@@ -1,4 +1,4 @@
-properties([githubProjectProperty(displayName: '', projectUrlStr: 'https://github.com/NoyPhilosof/World_Of_Games.git/')])
+// perties([githubProjectProperty(displayName: '', projectUrlStr: 'https://github.com/NoyPhilosof/World_Of_Games.git/')])
 
 pipeline {
     agent any
@@ -23,11 +23,15 @@ pipeline {
             }
         }
         
-        stage('Selenium Test') {
+        stage('Components install') {
             steps {
-                sh '''pip install -r ./requirements.txt
-                cd /utils
-                python3 ./utils/e2e.py'''
+                sh 'pip install -r ./requirements.txt'            }
+        }
+        
+        stage('Selenium test') {
+            steps {
+                sh '''cd utils/
+                python3 e2e.py'''
             }
         }
     }
