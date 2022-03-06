@@ -6,4 +6,4 @@ services:
       - 8777:5000
     volumes:
       - ./scores/:/home/mruser/scores/
-    #command: 'docker push world_of_games_web clearnoyz/flaskapp1'
+      
