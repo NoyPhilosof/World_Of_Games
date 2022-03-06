@@ -40,12 +40,14 @@ pipeline {
             }
         }
 
-        stage('Terminating Container') {
+        stage('Finalize') {
             steps {
                 sh '''docker-compose down
-                docker login -u clearnoyz -p degba4-fazfoG-wyssij
-                docker tag flask-app clearnoyz/wog-web-test:latest
-                docker image push clearnoyz/wog-web-test:latest'''
+                docker login -u twotrickspony -p 785694123
+                # pipeline name was flask-test-wog
+                docker tag flask-test-wog_web twotrickspony/wog-web-test:latest
+                docker image push twotrickspony/wog-web-test:latest
+                docker logout'''
             }
         }
     }
