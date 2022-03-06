@@ -3,9 +3,14 @@ from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')
 
 chrome_service = Service('./chromedriver')
-chrome_driver = webdriver.Chrome(service=chrome_service)
+chrome_driver = webdriver.Chrome(service=chrome_service, chrome_otions=options)
 
 
 def test_scores_service(url):
