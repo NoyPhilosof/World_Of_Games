@@ -27,7 +27,7 @@ pipeline {
             steps {
                 sh '''pip install -r ./requirements.txt
                 cd /utils
-                python3 e2e.py'''
+                python3 ./utils/e2e.py'''
             }
         }
     }
