@@ -1,12 +1,10 @@
 Ubuntu Test Machine Provisioning:
 
-# install java
-sudo apt update
-sudo apt install openssh-server -y
+# java 11
 sudo apt update
 sudo apt install openjdk-11-jre -y
 
-# install jenkins
+# Jenkins
 curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
 echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
@@ -18,7 +16,7 @@ sudo systemctl enable jenkins
 sudo systemctl start jenkins
 
 
-# install docker
+# Docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh ./get-docker.sh
 sudo groupadd docker
@@ -26,18 +24,22 @@ sudo usermod -aG docker $USER
 newgrp docker
 
 
-# install docker compose
+# Docker-Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 
-# install pip
+# pip
 sudo apt update
 sudo apt install python3-pip -y
 
 
-# google chrome
+# Google Chrome
 sudo apt update
 sudo apt upgrade -y
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+# Chromedriver
+https://chromedriver.storage.googleapis.com/99.0.4844.51/chromedriver_linux64.zip
+
