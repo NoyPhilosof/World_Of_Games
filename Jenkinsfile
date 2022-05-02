@@ -3,14 +3,6 @@ properties([githubProjectProperty(displayName: '', projectUrlStr: 'https://githu
 pipeline {
     agent any
 
-    stages {
-        
-        stage('Pre-settings') {
-            steps {
-                sh 'PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin/python3:/Users/noy/"'
-            }
-        }
-        
 
         stage('Checkout') {
             steps {
