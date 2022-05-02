@@ -3,7 +3,6 @@ services:
     #container_name: flask-container
     build: .
     ports:
-      - 8777:5000
+      - 5000:5000
     volumes:
-      - ./scores/:/home/mruser/scores/
-      
+      - ./scores/:/home/mruser/
