@@ -3,7 +3,8 @@ properties([githubProjectProperty(displayName: '', projectUrlStr: 'https://githu
 pipeline {
     agent any
 
-
+    stages {
+        
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'http://github.com/NoyPhilosof/World_Of_Games.git'
