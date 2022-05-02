@@ -5,6 +5,13 @@ pipeline {
 
     stages {
         
+        stage('Pre-settings') {
+            steps {
+                sh 'PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin/python3:/Users/noy/"'
+            }
+        }
+        
+
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'http://github.com/NoyPhilosof/World_Of_Games.git'
@@ -13,13 +20,13 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'docker build -t flask-app .'
+                sh '/usr/local/bin/docker build -t flask-app .'
             }
         }
         
         stage('Run') {
             steps {
-                sh '/usr/local/bin/docker-compose up -d'
+                sh '/usr/local/bin/docker-compose-v1 up -d'
             }
         }
 
@@ -28,7 +35,7 @@ pipeline {
                 catchError(message: 'Failed e2e Test') {
                     script {
                         try{
-                            sh '''pip install -r ./requirements.txt
+                            sh '''pip3 install -r ./requirements.txt
                             cd utils/
                             python3 e2e.py'''
                         }                
@@ -42,12 +49,12 @@ pipeline {
 
         stage('Finalize') {
             steps {
-                sh '''docker-compose down
-                docker login -u twotrickspony -p 785694123
+                sh '''/usr/local/bin/docker-compose-v1 down
+                /usr/local/bin/docker login -u twotrickspony -p 785694123
                 # pipeline name was flask-test-wog
-                docker tag flask-test-wog_web twotrickspony/wog-web-test:latest
-                docker image push twotrickspony/wog-web-test:latest
-                docker logout'''
+                /usr/local/bin/docker tag world_of_games_web twotrickspony/wog-web-test:latest
+                /usr/local/bin/docker image push twotrickspony/wog-web-test:latest
+                /usr/local/bin/docker logout'''
             }
         }
     }

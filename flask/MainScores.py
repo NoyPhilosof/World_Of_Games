@@ -7,7 +7,7 @@ def score_server():
     this func checks the first line of Scores.txt and returns it
     :return: int representing user current score
     """
-    with open("./scores/Scores.txt", 'r') as scores_file:
+    with open("/Users/noy/gits/World_Of_Games/scores/Scores.txt", 'r') as scores_file:
         content = scores_file.readlines()
         score = content[0]
         return score

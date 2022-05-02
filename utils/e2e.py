@@ -9,7 +9,7 @@ options = Options()
 options.add_argument('--headless')
 options.add_argument('--disable-gpu')
 
-chrome_service = Service('./chromedriver')
+chrome_service = Service('chromedriver')
 chrome_driver = webdriver.Chrome(service=chrome_service, chrome_options=options)
 
 
@@ -36,7 +36,7 @@ def test_scores_service(url):
             return -1
 
 
-def main_function(url='http://localhost:8777/success'):
+def main_function(url='http://localhost:5000/success'):
     """
     this function runs the pre-defined tests for the flask web service
     :argument url as a string
